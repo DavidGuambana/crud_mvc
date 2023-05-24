@@ -81,7 +81,7 @@ public final class ControladorPersonas extends KeyAdapter {
         vista.getTxtID().addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
-                Validar.numero(vista.getTxtID(), 1);
+                Validar.numero(vista.getTxtID(), 4);
             }
         });
         vista.getTxtCupo().addKeyListener(new KeyAdapter() {
