@@ -110,8 +110,6 @@ public final class ControladorPersonas extends KeyAdapter {
                 Validar.letras(vista.getTxtSexo(), 9);
             }
         });
-        //....
-        
     }
 
     private void visualizar(String id) {

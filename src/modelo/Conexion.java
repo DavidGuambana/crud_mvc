@@ -4,7 +4,7 @@ import java.sql.*;
 public class Conexion {
     Connection con;
     Statement st;
-    String cadenaConecction="jdbc:postgresql://localhost:5432/MVC";
+    String cadenaConecction="jdbc:postgresql://192.168.43.9:5432/MVC";
     String usuarioPG="postgres";
     String contraPG="0988";
 
