@@ -1,10 +1,9 @@
-
 package modelo;
 import java.sql.*;
 public class Conexion {
     Connection con;
     Statement st;
-    String cadenaConecction="jdbc:postgresql://192.168.43.9:5432/MVC";
+    String cadenaConecction="jdbc:postgresql://localhost:5432/MVC";
     String usuarioPG="postgres";
     String contraPG="0988";
 
@@ -15,12 +14,11 @@ public class Conexion {
         }
         try {
             con = DriverManager.getConnection(cadenaConecction,usuarioPG, contraPG );
-            System.out.println("Connection OK");
+            //System.out.println("Connection OK");
         } catch (SQLException ex) {
             System.out.println("No se pudo conectar");
         }
     }
-    
     public ResultSet consultaBD(String sql){
         try {
             st = con.createStatement();
@@ -29,7 +27,6 @@ public class Conexion {
             return null;
         }
     }
-    
     public boolean accionBD(String sql){
         try {
             st = con.createStatement();

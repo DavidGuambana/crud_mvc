@@ -9,29 +9,28 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import modelo.ModeloPersona;
+import modelo.MdlPersona;
 import modelo.Persona;
-import vista.VistaPersona;
+import vista.VisPersona;
 
-public final class ControladorPersonas extends KeyAdapter {
-    private final ModeloPersona modelo;
-    private final VistaPersona vista;
+public final class CtrlPersona extends KeyAdapter {
+    private final MdlPersona modelo;
+    private final VisPersona vista;
     private List<Persona> personas= new ArrayList<>();
     DefaultTableModel dtm;
-    String[] columnas = {"idpersona", "nombres", "apellidos", "edad", "telefono", "sexo", "sueldo", "cupo","email"};
+    String[] columnas = {"ID", "nombres", "apellidos", "edad", "telefono", "sexo", "sueldo", "cupo","email"};
     String id;
-    public ControladorPersonas(ModeloPersona modelo, VistaPersona vista) {
+    public CtrlPersona(MdlPersona modelo, VisPersona vista) {
         this.modelo = modelo;
         this.vista = vista;
         vista.setVisible(true);
-        vista.setLocationRelativeTo(null);
+        //vista.setLocationRelativeTo(null);
         visualizar("");
         seleccionar(vista.getT_personas());
-        iniciarControladorTECLA();
         modo("vista");
     }
     
-    public void iniciarControladorBTN() {
+    public void iniciarCtrlBtn() {
         vista.getBtnBuscar().addActionListener(buscar -> visualizar(vista.getTxtBuscar().getText()));
         vista.getBtnRemover().addActionListener(remover -> {
             if (modelo.eliminarPersona(vista.getTxtID().getText())) {
@@ -65,7 +64,7 @@ public final class ControladorPersonas extends KeyAdapter {
         vista.getBtnM_registro().addActionListener(b -> modo("registrar"));
         vista.getBtnM_editar().addActionListener(c -> modo("editar"));
     }
-    public void iniciarControladorTECLA() {
+    public void iniciarCtrlKey() {
         vista.getTxtNombres().addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {

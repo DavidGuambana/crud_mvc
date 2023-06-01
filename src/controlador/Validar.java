@@ -261,11 +261,7 @@ public class Validar {
         LocalDate lc_hoy = hoy.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
         LocalDate lc_nacimiento = nacimiento.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
         long dif_años = ChronoUnit.YEARS.between(lc_nacimiento, lc_hoy);
-        if (nacimiento.compareTo(hoy) < 0 && (dif_años >=18 && dif_años <100 )) {
-            return true;
-        } else {
-            return false;
-        }
+        return nacimiento.compareTo(hoy) < 0 && (dif_años >=18 && dif_años <100 );
 
     }
 

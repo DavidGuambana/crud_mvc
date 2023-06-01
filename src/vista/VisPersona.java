@@ -6,93 +6,71 @@ import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
-public class VistaPersona extends javax.swing.JFrame  {
+public class VisPersona extends javax.swing.JInternalFrame  {
 
-    public VistaPersona() {
+    public VisPersona() {
         initComponents();
     }
-
     public JButton getBtnActualizar() {
         return btnActualizar;
     }
-
     public JButton getBtnBuscar() {
         return btnBuscar;
     }
-
     public JButton getBtnImprimir() {
         return btnImprimir;
     }
-
     public JButton getBtnRegistrar() {
         return btnRegistrar;
     }
-
     public JButton getBtnRemover() {
         return btnRemover;
     }
-
-
     public JLabel getLblSeleccionarFoto() {
         return lblSeleccionarFoto;
     }
-
     public JTable getT_personas() {
         return t_personas;
     }
-
     public JTextField getTxtApellidos() {
         return txtApellidos;
     }
-
     public JTextField getTxtBuscar() {
         return txtBuscar;
     }
-
     public JTextField getTxtCupo() {
         return txtCupo;
     }
-
     public JTextField getTxtEmail() {
         return txtEmail;
     }
-
     public JDateChooser getTxtFechanacimiento() {
         return txtFechanacimiento;
     }
-
     public JLabel getTxtFoto() {
         return txtFoto;
     }
-
     public JTextField getTxtID() {
         return txtID;
     }
-
     public JTextField getTxtNombres() {
         return txtNombres;
     }
-
     public JTextField getTxtSexo() {
         return txtSexo;
     }
-
     public JTextField getTxtTelefono() {
         return txtTelefono;
     }
-
     public JTextField getTxtSueldo() {
         return txtSueldo;
     }
-
     public JButton getBtnM_editar() {
         return btnM_editar;
     }
-
     public JButton getBtnM_registro() {
         return btnM_registro;
     }
-
     public JButton getBtnM_vista() {
         return btnM_vista;
     }
@@ -136,7 +114,8 @@ public class VistaPersona extends javax.swing.JFrame  {
         btnRemover = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel2.setBackground(new java.awt.Color(51, 51, 51));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -145,7 +124,7 @@ public class VistaPersona extends javax.swing.JFrame  {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Buscar:");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, 99, -1));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 99, -1));
 
         txtBuscar.setBackground(new java.awt.Color(51, 51, 51));
         txtBuscar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -156,10 +135,10 @@ public class VistaPersona extends javax.swing.JFrame  {
         txtBuscar.setOpaque(true);
         txtBuscar.setSelectedTextColor(new java.awt.Color(0, 0, 0));
         txtBuscar.setSelectionColor(new java.awt.Color(0, 204, 255));
-        jPanel2.add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 20, 460, 30));
+        jPanel2.add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, 460, 30));
 
         jSeparator1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 255)));
-        jPanel2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, 480, 30));
+        jPanel2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, 480, 30));
 
         btnBuscar.setBackground(new java.awt.Color(0, 204, 255));
         btnBuscar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -168,7 +147,7 @@ public class VistaPersona extends javax.swing.JFrame  {
         btnBuscar.setBorder(null);
         btnBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnBuscar.setOpaque(true);
-        jPanel2.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 20, 120, 30));
+        jPanel2.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 10, 120, 30));
 
         t_personas = new javax.swing.JTable(){
             public boolean isCellEditable(int rowIndex, int colIndex){
@@ -191,13 +170,13 @@ public class VistaPersona extends javax.swing.JFrame  {
             }
         ));
         t_personas.setOpaque(false);
-        t_personas.setSelectionBackground(new java.awt.Color(204, 255, 255));
+        t_personas.setSelectionBackground(new java.awt.Color(102, 255, 102));
         t_personas.getTableHeader().setResizingAllowed(false);
         t_personas.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(t_personas);
 
         jLabel2.setBackground(new java.awt.Color(0, 153, 204));
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("REGISTROS DE PERSONAS");
@@ -452,7 +431,7 @@ public class VistaPersona extends javax.swing.JFrame  {
             .addGroup(layout.createSequentialGroup()
                 .addGap(0, 0, 0)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 900, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 910, Short.MAX_VALUE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -468,7 +447,7 @@ public class VistaPersona extends javax.swing.JFrame  {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
@@ -477,7 +456,7 @@ public class VistaPersona extends javax.swing.JFrame  {
                         .addComponent(btnImprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, 0)
                         .addComponent(jspDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 272, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 282, Short.MAX_VALUE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
