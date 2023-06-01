@@ -17,7 +17,6 @@ public final class CtrlPrincipal {
         this.visprincipal = vp;
         vp.setVisible(true);
         vp.setLocationRelativeTo(null);
-        iniciaControl();
     }
 
     public void iniciaControl() {

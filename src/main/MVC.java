@@ -7,7 +7,8 @@ public class MVC {
     
     public static void main(String[] args) {
         
-         VisPrincipal vistaprincipal = new VisPrincipal();
-         CtrlPrincipal controlprincipal = new CtrlPrincipal(vistaprincipal);
+         VisPrincipal visprincipal = new VisPrincipal();
+         CtrlPrincipal ctrlprincipal = new CtrlPrincipal(visprincipal);
+         ctrlprincipal.iniciaControl();
     }
 }
