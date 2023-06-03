@@ -1,4 +1,6 @@
 package controlador;
+import controlador.otros.FiltrarTabla;
+import controlador.otros.Validar;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
@@ -31,7 +33,7 @@ public final class CtrlPersona extends KeyAdapter {
     }
     
     public void iniciarCtrlBtn() {
-        vista.getBtnBuscar().addActionListener(buscar -> visualizar(vista.getTxtBuscar().getText()));
+        vista.getBtnBuscar().addActionListener(buscar -> FiltrarTabla.filtrar(vista.getT_personas(),vista.getTxtBuscar(),vista.getCbAtributos()));
         vista.getBtnRemover().addActionListener(remover -> {
             if (modelo.eliminarPersona(vista.getTxtID().getText())) {
                 JOptionPane.showMessageDialog(null, "¡Eliminado correctamente!");
@@ -131,6 +133,7 @@ public final class CtrlPersona extends KeyAdapter {
             }
         });
     }
+    
     public void setearDatos() {
         try {
             if (vista.getTxtID().getText().isEmpty()||vista.getTxtNombres().getText().isEmpty()|| vista.getTxtApellidos().getText().isEmpty() || vista.getTxtFechanacimiento().getDate().equals("") || vista.getTxtTelefono().getText().isEmpty()|| vista.getTxtSueldo().getText().isEmpty()||
@@ -151,11 +154,9 @@ public final class CtrlPersona extends KeyAdapter {
                 //modelo.setFoto((byte)00111001);
                 modelo.setCorreo(vista.getTxtEmail().getText());
             }
-
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "¡Algunos datos no son correctos!");
         }
-        
     }
     public void llenarPerfil(){
         personas = modelo.listarPersonas(id);

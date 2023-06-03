@@ -8,9 +8,6 @@ public class MdlProducto extends Producto{
     Conexion cpg = new Conexion();
     ResultSet rs = null;
     String sql;
-
-    public MdlProducto() {
-    }
     
     public List<Producto> listarProductos(String id) {
         List<Producto> listaProductos = new ArrayList<>();

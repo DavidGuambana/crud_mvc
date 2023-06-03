@@ -1,5 +1,6 @@
 package vista;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
@@ -83,20 +84,21 @@ public class VisProducto extends javax.swing.JInternalFrame  {
         return txtStock;
     }
 
-    
+    public JComboBox<String> getCbAtributos() {
+        return cbAtributos;
+    }
 
-    
-    
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        btnBuscar = new javax.swing.JButton();
         txtBuscar = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
-        btnBuscar = new javax.swing.JButton();
+        cbAtributos = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         t_productos = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
@@ -125,15 +127,19 @@ public class VisProducto extends javax.swing.JInternalFrame  {
 
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(918, 503));
 
         jPanel2.setBackground(new java.awt.Color(51, 51, 51));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Buscar:");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 99, -1));
+        btnBuscar.setBackground(new java.awt.Color(0, 204, 255));
+        btnBuscar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnBuscar.setForeground(new java.awt.Color(255, 255, 255));
+        btnBuscar.setText("Buscar");
+        btnBuscar.setBorder(null);
+        btnBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnBuscar.setOpaque(true);
+        jPanel2.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 10, 120, 30));
 
         txtBuscar.setBackground(new java.awt.Color(51, 51, 51));
         txtBuscar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -144,19 +150,24 @@ public class VisProducto extends javax.swing.JInternalFrame  {
         txtBuscar.setOpaque(true);
         txtBuscar.setSelectedTextColor(new java.awt.Color(0, 0, 0));
         txtBuscar.setSelectionColor(new java.awt.Color(0, 204, 255));
-        jPanel2.add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, 460, 30));
+        jPanel2.add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 10, 360, 30));
 
         jSeparator1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 255)));
-        jPanel2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, 480, 30));
+        jPanel2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 10, 380, 30));
 
-        btnBuscar.setBackground(new java.awt.Color(0, 204, 255));
-        btnBuscar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btnBuscar.setForeground(new java.awt.Color(255, 255, 255));
-        btnBuscar.setText("Buscar");
-        btnBuscar.setBorder(null);
-        btnBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnBuscar.setOpaque(true);
-        jPanel2.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 10, 120, 30));
+        cbAtributos.setBackground(new java.awt.Color(0, 204, 255));
+        cbAtributos.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        cbAtributos.setForeground(new java.awt.Color(255, 255, 255));
+        cbAtributos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID", "Nombre", "Precio", "Stock", "Descripción", "Categoría" }));
+        cbAtributos.setBorder(null);
+        cbAtributos.setOpaque(true);
+        jPanel2.add(cbAtributos, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, 170, 30));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Filtrar");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 90, 30));
 
         t_productos = new javax.swing.JTable(){
             public boolean isCellEditable(int rowIndex, int colIndex){
@@ -472,6 +483,7 @@ public class VisProducto extends javax.swing.JInternalFrame  {
     private javax.swing.JButton btnM_vista;
     private javax.swing.JButton btnRegistrar;
     private javax.swing.JButton btnRemover;
+    private javax.swing.JComboBox<String> cbAtributos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel157;
     private javax.swing.JLabel jLabel2;

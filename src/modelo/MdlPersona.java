@@ -6,9 +6,6 @@ public class MdlPersona extends Persona {
     Conexion cpg = new Conexion();
     ResultSet rs = null;
     String sql;
-
-    public MdlPersona() {
-    }
     
     public List<Persona> listarPersonas(String id) {
         List<Persona> listaPersonas = new ArrayList<>();
@@ -56,6 +53,34 @@ public class MdlPersona extends Persona {
                 + ",'" + getCorreo()+"')";
         return cpg.accionBD(sql);
     }
+    
+    public List<Persona> listarPersonasLike(String txt,String campo) {
+        List<Persona> listaPersonas = new ArrayList<>();
+        try {
+            sql = "SELECT idpersona, nombres, apellidos, fechanacimiento, telefono, sexo, sueldo, cupo, foto, correo FROM persona WHERE "+campo+" like '%"+txt+"'";
+            rs = cpg.consultaBD(sql);
+            if (rs != null) {
+                while (rs.next()) {
+                    Persona persona = new Persona();
+                    persona.setIdPersona(rs.getString(1));
+                    persona.setNombrePersona(rs.getString(2));
+                    persona.setApellidoPersona(rs.getString(3));
+                    persona.setFechanacimineto(rs.getDate(4));
+                    persona.setTelefono(rs.getString(5));
+                    persona.setSexo(rs.getString(6));
+                    persona.setSueldo(rs.getInt(7));
+                    persona.setCupo(rs.getInt(8));
+                    //persona.setFoto(rs.getByte(9));
+                    persona.setCorreo(rs.getString(10));
+                    listaPersonas.add(persona);
+                }
+            }
+            return listaPersonas;
+        } catch (SQLException ex) {
+            return null;
+        }
+    }
+    
     public boolean updatePersona() {
         sql = "UPDATE persona SET nombres='"
                 +getNombrePersona()+"', apellidos='"

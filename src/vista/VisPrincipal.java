@@ -110,6 +110,10 @@ public class VisPrincipal extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jSeparator11 = new javax.swing.JToolBar.Separator();
         jSeparator12 = new javax.swing.JToolBar.Separator();
+        jSeparator20 = new javax.swing.JToolBar.Separator();
+        jSeparator21 = new javax.swing.JToolBar.Separator();
+        jSeparator23 = new javax.swing.JToolBar.Separator();
+        jSeparator22 = new javax.swing.JToolBar.Separator();
         jButton4 = new javax.swing.JButton();
         jSeparator10 = new javax.swing.JToolBar.Separator();
         jSeparator9 = new javax.swing.JToolBar.Separator();
@@ -140,7 +144,7 @@ public class VisPrincipal extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
 
-        pbClientes.setBackground(new java.awt.Color(255, 255, 0));
+        pbClientes.setBackground(new java.awt.Color(0, 204, 51));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -153,7 +157,7 @@ public class VisPrincipal extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(pbClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 6, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
 
         dskPrincipal.setBackground(new java.awt.Color(255, 255, 255));
@@ -177,6 +181,8 @@ public class VisPrincipal extends javax.swing.JFrame {
         tolbar.setRollover(true);
 
         tlbFacturar.setBackground(new java.awt.Color(51, 51, 51));
+        tlbFacturar.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
+        tlbFacturar.setForeground(new java.awt.Color(0, 204, 255));
         tlbFacturar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/facturacion.png"))); // NOI18N
         tlbFacturar.setToolTipText("Nueva factura...");
         tlbFacturar.setBorder(null);
@@ -193,6 +199,8 @@ public class VisPrincipal extends javax.swing.JFrame {
         tolbar.add(jSeparator3);
 
         tlbPersonas.setBackground(new java.awt.Color(51, 51, 51));
+        tlbPersonas.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
+        tlbPersonas.setForeground(new java.awt.Color(0, 204, 255));
         tlbPersonas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/publico-objetivo.png"))); // NOI18N
         tlbPersonas.setToolTipText("Clientes...");
         tlbPersonas.setBorder(null);
@@ -208,6 +216,7 @@ public class VisPrincipal extends javax.swing.JFrame {
         tolbar.add(jSeparator6);
 
         tlbProductos.setBackground(new java.awt.Color(51, 51, 51));
+        tlbProductos.setForeground(new java.awt.Color(0, 204, 255));
         tlbProductos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/carrito-de-supermercado.png"))); // NOI18N
         tlbProductos.setToolTipText("Productos...");
         tlbProductos.setBorder(null);
@@ -223,6 +232,7 @@ public class VisPrincipal extends javax.swing.JFrame {
         tolbar.add(jSeparator5);
 
         tlbResumen.setBackground(new java.awt.Color(51, 51, 51));
+        tlbResumen.setForeground(new java.awt.Color(0, 204, 255));
         tlbResumen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/satisfaccion.png"))); // NOI18N
         tlbResumen.setToolTipText("Resumen...");
         tlbResumen.setBorder(null);
@@ -253,13 +263,16 @@ public class VisPrincipal extends javax.swing.JFrame {
         tolbar1.add(jLabel1);
         tolbar1.add(jSeparator11);
         tolbar1.add(jSeparator12);
+        tolbar1.add(jSeparator20);
+        tolbar1.add(jSeparator21);
+        tolbar1.add(jSeparator23);
+        tolbar1.add(jSeparator22);
 
         jButton4.setBackground(new java.awt.Color(51, 51, 51));
         jButton4.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jButton4.setForeground(new java.awt.Color(255, 255, 255));
         jButton4.setText("Username");
         jButton4.setBorder(null);
-        jButton4.setFocusable(false);
         jButton4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton4.setOpaque(true);
         jButton4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -284,16 +297,16 @@ public class VisPrincipal extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(tolbar, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 382, Short.MAX_VALUE)
-                .addComponent(tolbar1, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 337, Short.MAX_VALUE)
+                .addComponent(tolbar1, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(tolbar1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(4, 4, 4)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tolbar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tolbar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -394,15 +407,15 @@ public class VisPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(dskPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 910, Short.MAX_VALUE)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(dskPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
+                .addGap(0, 0, 0)
                 .addComponent(dskPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 502, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -433,6 +446,10 @@ public class VisPrincipal extends javax.swing.JFrame {
     private javax.swing.JPopupMenu.Separator jSeparator18;
     private javax.swing.JPopupMenu.Separator jSeparator19;
     private javax.swing.JToolBar.Separator jSeparator2;
+    private javax.swing.JToolBar.Separator jSeparator20;
+    private javax.swing.JToolBar.Separator jSeparator21;
+    private javax.swing.JToolBar.Separator jSeparator22;
+    private javax.swing.JToolBar.Separator jSeparator23;
     private javax.swing.JToolBar.Separator jSeparator3;
     private javax.swing.JToolBar.Separator jSeparator4;
     private javax.swing.JToolBar.Separator jSeparator5;

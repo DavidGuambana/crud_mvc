@@ -1,7 +1,10 @@
 package controlador;
 
+import modelo.MdlDetalle;
+import modelo.MdlEncabezado;
 import modelo.MdlPersona;
 import modelo.MdlProducto;
+import vista.VisFactura;
 import vista.VisPrincipal;
 import vista.VisPersona;
 import vista.VisProducto;
@@ -11,12 +14,14 @@ public final class CtrlPrincipal {
     VisPrincipal visprincipal;
     VisPersona vistapersona;
     VisProducto vistaproducto;
+    VisFactura vistafactura;
     
     public CtrlPrincipal(VisPrincipal vp) {
         this.visprincipal = vp;
         this.visprincipal = vp;
         vp.setVisible(true);
         vp.setLocationRelativeTo(null);
+        visprincipal.getTlbPersonas().setText("100");
     }
 
     public void iniciaControl() {
@@ -25,6 +30,10 @@ public final class CtrlPrincipal {
         
         visprincipal.getJmi_visualizar_productos().addActionListener(l-> verProducto());
         visprincipal.getTlbProductos().addActionListener(l->verProducto());
+        
+        visprincipal.getJmi_registrar_venta().addActionListener(l-> verFactura());
+        visprincipal.getTlbFacturar().addActionListener(l->verFactura());
+        
     }
     
     private void  verPersona(){
@@ -52,7 +61,22 @@ public final class CtrlPrincipal {
         ctrlproducto.iniciarCtrlKey();
     }
     
+    private void verFactura() {
+        MdlEncabezado mdlencabezado = new MdlEncabezado() ;
+        MdlDetalle mdldetalle = new MdlDetalle();
+        MdlProducto mdlproducto = new MdlProducto();
+        MdlPersona mdlpersona = new MdlPersona();
+        
+        try {
+            visprincipal.getDskPrincipal().add(vistafactura);
+        } catch (Exception e) {
+            
+            vistafactura = new VisFactura();
+            visprincipal.getDskPrincipal().add(vistafactura);
+        }
+        CtrlFactura ctrlfactura = new CtrlFactura(mdlencabezado, mdldetalle,mdlproducto,mdlpersona,vistafactura);
+        ctrlfactura.iniciarCtrlBtn();
+    }
+    
 }
-
-
 

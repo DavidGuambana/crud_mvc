@@ -1,5 +1,7 @@
 package controlador;
 
+import controlador.otros.FiltrarTabla;
+import controlador.otros.Validar;
 import java.awt.HeadlessException;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -32,7 +34,7 @@ public final class CtrlProducto {
     }
     
     public void iniciarCtrlBtn() {
-        vista.getBtnBuscar().addActionListener(buscar -> visualizar(vista.getTxtBuscar().getText()));
+        vista.getBtnBuscar().addActionListener(buscar -> FiltrarTabla.filtrar(vista.getT_productos(),vista.getTxtBuscar(),vista.getCbAtributos()));
         vista.getBtnRemover().addActionListener(remover -> {
             if (modelo.eliminarProducto(vista.getTxtID().getText())) {
                 JOptionPane.showMessageDialog(null, "¡Eliminado correctamente!");
