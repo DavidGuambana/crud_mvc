@@ -1,4 +1,4 @@
-package controlador.otros;
+package controlador.imp;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;

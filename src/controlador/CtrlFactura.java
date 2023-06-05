@@ -1,8 +1,9 @@
 package controlador;
 
-import controlador.otros.BotonTabla;
-import controlador.otros.FiltrarTabla;
+import controlador.imp.BotonTabla;
+import controlador.imp.FiltrarTabla;
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
@@ -24,11 +25,11 @@ import modelo.Producto;
 import vista.VisFactura;
 
 public final class CtrlFactura  {
-    private MdlEncabezado mdlencabezado;
-    private MdlDetalle mdldetalle;
-    private MdlProducto mdlproducto;
-    private MdlPersona mdlpersona;
-    private VisFactura vista;
+    private final MdlEncabezado mdlencabezado;
+    private final MdlDetalle mdldetalle;
+    private final MdlProducto mdlproducto;
+    private final MdlPersona mdlpersona;
+    private final VisFactura vista;
     
     private List<Encabezado> encabezados= new ArrayList<>();
     private List<Detalle> detalles= new ArrayList<>();
@@ -44,8 +45,6 @@ public final class CtrlFactura  {
     JButton btnAgregar = new JButton();
     JButton btnEliminar = new JButton();
     
-    
-    String id;
     Double total=0.0;
     
     public CtrlFactura(MdlEncabezado mdlencabezado, MdlDetalle mdldetalle, MdlProducto mdlproducto, MdlPersona mdlpersona, VisFactura vista) {
@@ -58,7 +57,7 @@ public final class CtrlFactura  {
         btnEliminar.setBackground(Color.WHITE);
         InsertarIcono(btnAgregar, "/vista/iconos/agregar.png");
         InsertarIcono(btnEliminar, "/vista/iconos/eliminar.png");
-        AgregarDetalle(vista.getT_productos());
+        ManipularTabla(vista.getT_productos(),vista.getT_detalles());
         dtm2 = new DefaultTableModel(null, new Object[]{"ID producto", "Nombre","Precio", "Cantidad", "Subtotal", "Acción"});
         vista.getT_detalles().setRowHeight(40);
         vista.getT_detalles().setModel(dtm2);
@@ -69,6 +68,7 @@ public final class CtrlFactura  {
         
         SeleccionarEncabezado(vista.getT_encabezados());
         vista.getBtnEliminarFactura().setVisible(false);
+        vista.getT_productos().setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
     }
 
     public void iniciarCtrlBtn() {
@@ -78,6 +78,7 @@ public final class CtrlFactura  {
         vista.getBtnSeleccionarProduto().addActionListener(c-> abrirDialogo("Listado de productos") );
         vista.getBtnReiniciarFactura().addActionListener(c-> reiniciarFactura());
         vista.getBtnBuscar_cli().addActionListener(c-> visualizarClientes(vista.getTxtBuscar_cli().getText(), vista.getCbCliente()));
+        vista.getBtnEliminarFactura().addActionListener(c-> ocultarEncabezado(Integer.parseInt(vista.getTxtCodigo().getText())));
     }
     
     public void crearFactura() {
@@ -100,6 +101,7 @@ public final class CtrlFactura  {
                 mdldetalle.setCantidad(Integer.parseInt(vista.getT_detalles().getValueAt(i, 3).toString()));
                 mdldetalle.setSubtotal(Double.parseDouble(vista.getT_detalles().getValueAt(i, 4).toString()));
                 mdldetalle.crearDetalle();
+                actualizarStock(mdldetalle.getProductoid(),mdldetalle.getCantidad());
             }
             JOptionPane.showMessageDialog(null, "¡Registrado correctamente!");
             reiniciarFactura();
@@ -192,9 +194,8 @@ public final class CtrlFactura  {
             }
         });
     }
-    
 
-    public void AgregarDetalle(JTable t){
+    public void ManipularTabla(JTable t, JTable t2){
         t.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent me) {
@@ -205,63 +206,41 @@ public final class CtrlFactura  {
                     int existencias = Integer.parseInt(t.getValueAt(t.getSelectedRow(), 3).toString());
                     int xcolum = t.getColumnModel().getColumnIndexAtX(me.getX());
                     int xrow = me.getY() / t.getRowHeight();
-                    
                     if (xcolum <= vista.getT_productos().getColumnCount() && xcolum >= 0 && xrow <= vista.getT_productos().getRowCount() && xrow >= 0) {
                         Object obj = vista.getT_productos().getValueAt(xrow, xcolum);
                         if (obj instanceof JButton) {
-                            if (existencias > 0) {
-                                boolean repetido = false;
-                                for (int i = 0; i < productos_agregados.size(); i++) {
-                                    if (productos_agregados.get(i).equals(id_pro)) {
-                                        repetido = true;
-                                        break;
-                                    }
-                                }
-                                if (repetido) {
-                                    JOptionPane.showMessageDialog(null, "¡Este producto ya fué seleccionado!, Seleccione otro!", null, JOptionPane.WARNING_MESSAGE);
-                                } else {
-                                    try {
-                                        int cantidad = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese la cantidad:", 1));
-                                        if (cantidad > 0 && cantidad <= existencias) {
-                                            vista.getT_detalles().setDefaultRenderer(Object.class, new BotonTabla());
-                                            Object detalle[] = {id_pro, nombre_pro, precio_pro, cantidad, precio_pro*cantidad,btnEliminar};
-                                            //-------------- Agrega un detalle a la tabla
-                                            dtm2.addRow(detalle);
-                                            vista.getT_detalles().setModel(dtm2);
-                                            //--------------- Actualiza variables
-                                            total+=(precio_pro*cantidad);
-                                            vista.getTxtTotal().setText("$"+total);
-                                            productos_agregados.add(id_pro);
-                                            vista.getSeleccionar_pro().setVisible(false);
-                                            
-                                        } else {
-                                            if (cantidad > existencias) {
-                                                JOptionPane.showMessageDialog(null, "¡Solo existen '" + existencias + "' de este producto!", null, JOptionPane.WARNING_MESSAGE);
-                                            }
-                                            if (cantidad <= 0) {
-                                                JOptionPane.showMessageDialog(null, "¡El mínimo de venta es de 1!", null, JOptionPane.WARNING_MESSAGE);
-                                            }
-                                        }
-                                    } catch (Exception e) {
-                                        JOptionPane.showMessageDialog(null, "¡Cantiadad inválida!", null, JOptionPane.ERROR_MESSAGE);
-                                    }
-                                }
-
-                            } else {
-                                JOptionPane.showMessageDialog(null, "¡Producto agotado!, Seleccione otro!", null, JOptionPane.WARNING_MESSAGE);
+                            agregarProducto(id_pro, nombre_pro, precio_pro, existencias);
+                        } 
+                    }
+                }
+            }
+        });
+        t2.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent me) {
+                if (me.getClickCount() == 1) {
+                    if (vista.getBtnCrearFactura().isVisible()) {
+                        String id_pro = t2.getValueAt(t2.getSelectedRow(), 0).toString();
+                        double precio_pro = Double.parseDouble(t2.getValueAt(t2.getSelectedRow(), 2).toString());
+                        int cantidad = Integer.parseInt(t2.getValueAt(t2.getSelectedRow(), 3).toString());
+                        int xcolum = t2.getColumnModel().getColumnIndexAtX(me.getX());
+                        int xrow = me.getY() / t2.getRowHeight();
+                        if (xcolum <= vista.getT_productos().getColumnCount() && xcolum >= 0 && xrow <= vista.getT_productos().getRowCount() && xrow >= 0) {
+                            Object obj = vista.getT_productos().getValueAt(xrow, xcolum);
+                            if (obj instanceof JButton) {
+                                eliminarProducto(id_pro, precio_pro, cantidad);
                             }
                         }
                     }
+
                 }
             }
         });
     }
     
-    
     public void reiniciarFactura(){
-        for (int i = productos_agregados.size(); i > 0; i--) {
-            dtm2.removeRow(i - 1);
-        }
+        dtm2 = new DefaultTableModel();
+        vista.getT_detalles().setModel(dtm2);
         productos_agregados.clear();
         total = 0.0;
         vista.getTxtCodigo().setText("Autogenerable");
@@ -275,7 +254,6 @@ public final class CtrlFactura  {
         vista.getJspDatos().getVerticalScrollBar().setValue(0);
     }
         
-    
     public void InsertarIcono(JButton bot, String ruta){ //insertar icono en boton:
         bot.setIcon(new javax.swing.ImageIcon(getClass().getResource(ruta)));
     }
@@ -286,5 +264,83 @@ public final class CtrlFactura  {
         vista.getSeleccionar_pro().setTitle(titulo);
         vista.getSeleccionar_pro().setLocationRelativeTo(null);
         vista.getSeleccionar_pro().setVisible(true);
+    }
+
+    public void agregarProducto(String id_pro, String nombre_pro, Double precio_pro, int existencias) {
+        if (existencias > 0) {
+            boolean repetido = false;
+            for (int i = 0; i < productos_agregados.size(); i++) {
+                if (productos_agregados.get(i).equals(id_pro)) {
+                    repetido = true;
+                    break;
+                }
+            }
+            if (repetido) {
+                JOptionPane.showMessageDialog(null, "¡Este producto ya fué seleccionado!, Seleccione otro!", null, JOptionPane.WARNING_MESSAGE);
+            } else {
+                try {
+                    int cantidad = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese la cantidad:", 1));
+                    if (cantidad > 0 && cantidad <= existencias) {
+                        vista.getT_detalles().setDefaultRenderer(Object.class, new BotonTabla());
+                        Object detalle[] = {id_pro, nombre_pro, precio_pro, cantidad, precio_pro * cantidad, btnEliminar};
+                        //-------------- Agrega un detalle a la tabla
+                        dtm2.addRow(detalle);
+                        vista.getT_detalles().setModel(dtm2);
+                        //--------------- Actualiza variables
+                        total += (precio_pro * cantidad);
+                        vista.getTxtTotal().setText("$" + total);
+                        productos_agregados.add(id_pro);
+                        vista.getSeleccionar_pro().setVisible(false);
+                    } else {
+                        if (cantidad > existencias) {
+                            JOptionPane.showMessageDialog(null, "¡Solo existen '" + existencias + "' de este producto!", null, JOptionPane.WARNING_MESSAGE);
+                        }
+                        if (cantidad <= 0) {
+                            JOptionPane.showMessageDialog(null, "¡El mínimo de venta es de 1!", null, JOptionPane.WARNING_MESSAGE);
+                        }
+                    }
+                } catch (NumberFormatException e) {
+                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "¡Producto agotado!, Seleccione otro!", null, JOptionPane.WARNING_MESSAGE);
+        }
+    }
+
+    public void eliminarProducto(String id_pro, Double precio_pro, int cantidad) {
+        int valor = JOptionPane.showConfirmDialog(null, "¿Desea remover este producto?", null, JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if (valor == JOptionPane.YES_OPTION) { 
+            //--------------- Actualiza variables
+            total -= (precio_pro * cantidad);
+            vista.getTxtTotal().setText("$" + total);
+            //----> Eliminar un detalle a la tabla:
+            dtm2.removeRow(vista.getT_detalles().getSelectedRow());
+            vista.getT_detalles().setModel(dtm2);
+            //-- > Deseleccinar al producto eliminado
+            for (int i = 0; i < productos_agregados.size(); i++) {
+                if (productos_agregados.get(i).equals(id_pro)) {
+                    productos_agregados.remove(id_pro);
+                    i = productos_agregados.size();
+                }
+            }
+        }
+    }
+    
+    public void actualizarStock(String id_pro, int cantidad){
+        productos = mdlproducto.listarProductos(id_pro);
+        int stock = productos.get(0).getStock();
+        stock-=cantidad;
+        mdlproducto.setIdproducto(id_pro);
+        mdlproducto.setStock(stock);
+        mdlproducto.updateProductoStock();
+    }
+    
+    public void ocultarEncabezado(int codigo){
+        encabezados = mdlencabezado.listarEncabezados(codigo);
+        mdlencabezado.setIdencabezado(codigo);
+        mdlencabezado.setEstado("oculto");
+        mdlencabezado.updateEncabezado();
+        visualizarFacturas(0);
+        reiniciarFactura();
     }
 }

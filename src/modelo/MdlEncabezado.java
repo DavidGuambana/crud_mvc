@@ -15,7 +15,7 @@ public class MdlEncabezado extends Encabezado{
        List<Encabezado> encabezados = new ArrayList<>();
        try {
             if (id==0) {
-                sql = "SELECT idencabezado, idpersona, fecha, total, estado FROM encabezado";
+                sql = "SELECT idencabezado, idpersona, fecha, total, estado FROM encabezado WHERE estado='activo'";
             } else {
                 sql = "SELECT idencabezado, idpersona, fecha, total, estado FROM encabezado WHERE idencabezado="+id;
             }
@@ -33,22 +33,21 @@ public class MdlEncabezado extends Encabezado{
     }
     
     public boolean crearEncabezado() {
-        sql = "INSERT INTO encabezado(idpersona, fecha, total)"
+        sql = "INSERT INTO encabezado(idpersona, fecha, total, estado)"
                 + " VALUES ('" + getIdpersona()
                 + "','" + getFecha()
-                + "'," + getTotal()+")";
+                + "'," + getTotal()
+                + ",'" + getEstado() + "')";
         return cpg.accionBD(sql);
     }
-    
+
     public boolean updateEncabezado() {
-        sql = "UPDATE encabezado SET idpersona='"
-                +getIdpersona()+"', fecha='"
-                +getFecha()+"', total="
-                +getTotal()+" WHERE idencabezado="+getIdencabezado();
+        sql = "UPDATE encabezado SET estado='"
+                +getEstado()+"' WHERE idencabezado="+getIdencabezado();
         return cpg.accionBD(sql);
     }
     
-    public boolean eliminarEncabezado(String id){
+    public boolean eliminarEncabezado(int id){
         sql = "DELETE FROM encabezado WHERE idencabezado="+id;
         return cpg.accionBD(sql);
     }
@@ -60,7 +59,6 @@ public class MdlEncabezado extends Encabezado{
             rs = cpg.consultaBD(sql);
             rs.next();
             id = rs.getInt("idencabezado");
-            
         } catch (SQLException ex) {
             Logger.getLogger(MdlEncabezado.class.getName()).log(Level.SEVERE, null, ex);
         }

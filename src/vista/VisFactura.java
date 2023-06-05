@@ -488,6 +488,7 @@ public class VisFactura extends javax.swing.JInternalFrame {
 
             }
         ));
+        t_detalles.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         t_detalles.setOpaque(false);
         t_detalles.setSelectionBackground(new java.awt.Color(102, 255, 102));
         t_detalles.getTableHeader().setResizingAllowed(false);

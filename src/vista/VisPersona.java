@@ -1,6 +1,7 @@
 package vista;
 
 import com.toedter.calendar.JDateChooser;
+import java.awt.Cursor;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -80,9 +81,6 @@ public class VisPersona extends javax.swing.JInternalFrame  {
         return cbAtributos;
     }
 
-    
-    
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -121,7 +119,10 @@ public class VisPersona extends javax.swing.JInternalFrame  {
         jPanel3 = new javax.swing.JPanel();
 
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
         setPreferredSize(new java.awt.Dimension(918, 503));
 
         jPanel2.setBackground(new java.awt.Color(51, 51, 51));
@@ -152,7 +153,7 @@ public class VisPersona extends javax.swing.JInternalFrame  {
         btnBuscar.setForeground(new java.awt.Color(255, 255, 255));
         btnBuscar.setText("Buscar");
         btnBuscar.setBorder(null);
-        btnBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnBuscar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         btnBuscar.setOpaque(true);
         jPanel2.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 10, 120, 30));
 

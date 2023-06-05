@@ -1,6 +1,6 @@
 package controlador;
-import controlador.otros.FiltrarTabla;
-import controlador.otros.Validar;
+import controlador.imp.FiltrarTabla;
+import controlador.imp.Validar;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;

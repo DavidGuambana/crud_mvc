@@ -59,4 +59,9 @@ public class Encabezado {
     public void setEstado(String estado) {
         this.estado = estado;
     }
+
+    @Override
+    public String toString() {
+        return "Encabezado{" + "idencabezado=" + idencabezado + ", idpersona=" + idpersona + ", fecha=" + fecha + ", total=" + total + ", estado=" + estado + '}';
+    }
 }

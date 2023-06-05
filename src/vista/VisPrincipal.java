@@ -3,10 +3,8 @@ package vista;
 import javax.swing.JButton;
 import javax.swing.JDesktopPane;
 import javax.swing.JMenu;
-import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JProgressBar;
-import javax.swing.JToolBar;
 
 public class VisPrincipal extends javax.swing.JFrame {
 
@@ -82,7 +80,6 @@ public class VisPrincipal extends javax.swing.JFrame {
     public JButton getTlbResumen() {
         return tlbResumen;
     }
-    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -182,7 +179,7 @@ public class VisPrincipal extends javax.swing.JFrame {
 
         tlbFacturar.setBackground(new java.awt.Color(51, 51, 51));
         tlbFacturar.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
-        tlbFacturar.setForeground(new java.awt.Color(0, 204, 255));
+        tlbFacturar.setForeground(new java.awt.Color(255, 255, 255));
         tlbFacturar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/facturacion.png"))); // NOI18N
         tlbFacturar.setToolTipText("Nueva factura...");
         tlbFacturar.setBorder(null);
@@ -200,7 +197,7 @@ public class VisPrincipal extends javax.swing.JFrame {
 
         tlbPersonas.setBackground(new java.awt.Color(51, 51, 51));
         tlbPersonas.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
-        tlbPersonas.setForeground(new java.awt.Color(0, 204, 255));
+        tlbPersonas.setForeground(new java.awt.Color(255, 255, 255));
         tlbPersonas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/publico-objetivo.png"))); // NOI18N
         tlbPersonas.setToolTipText("Clientes...");
         tlbPersonas.setBorder(null);
@@ -216,7 +213,7 @@ public class VisPrincipal extends javax.swing.JFrame {
         tolbar.add(jSeparator6);
 
         tlbProductos.setBackground(new java.awt.Color(51, 51, 51));
-        tlbProductos.setForeground(new java.awt.Color(0, 204, 255));
+        tlbProductos.setForeground(new java.awt.Color(255, 255, 255));
         tlbProductos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/carrito-de-supermercado.png"))); // NOI18N
         tlbProductos.setToolTipText("Productos...");
         tlbProductos.setBorder(null);
@@ -232,7 +229,7 @@ public class VisPrincipal extends javax.swing.JFrame {
         tolbar.add(jSeparator5);
 
         tlbResumen.setBackground(new java.awt.Color(51, 51, 51));
-        tlbResumen.setForeground(new java.awt.Color(0, 204, 255));
+        tlbResumen.setForeground(new java.awt.Color(255, 255, 255));
         tlbResumen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/satisfaccion.png"))); // NOI18N
         tlbResumen.setToolTipText("Resumen...");
         tlbResumen.setBorder(null);
@@ -305,9 +302,9 @@ public class VisPrincipal extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(4, 4, 4)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tolbar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tolbar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(tolbar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(tolbar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -424,8 +421,6 @@ public class VisPrincipal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane dskPrincipal;

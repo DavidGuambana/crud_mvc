@@ -50,17 +50,26 @@ public class MdlProducto extends Producto{
                // + "," + getFoto()
         return cpg.accionBD(sql);
     }
+
     public boolean updateProducto() {
         sql = "UPDATE producto SET nombre='"
-                +getNombre()+"', precio="
-                +getPrecio()+", stock="
-                +getStock()+", descripcion='"
-                +getDescripcion()+"', categoria='"
-                +getCategoría()+"' WHERE idproducto='"+getIdproducto()+"'";
+                + getNombre() + "', precio="
+                + getPrecio() + ", stock="
+                + getStock() + ", descripcion='"
+                + getDescripcion() + "', categoria='"
+                + getCategoría() + "' WHERE idproducto='" + getIdproducto() + "'";
         return cpg.accionBD(sql);
     }
-    public boolean eliminarProducto(String id){
-        sql = "DELETE FROM producto WHERE idproducto='"+id+"'";
+
+    public boolean eliminarProducto(String id) {
+        sql = "DELETE FROM producto WHERE idproducto='" + id + "'";
+        return cpg.accionBD(sql);
+    }
+
+    public boolean updateProductoStock() {
+        sql = "UPDATE producto SET stock="
+                + getStock() + " WHERE idproducto='" + getIdproducto() + "'";
+        System.out.println(sql);
         return cpg.accionBD(sql);
     }
 }

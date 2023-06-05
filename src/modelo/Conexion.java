@@ -22,10 +22,12 @@ public class Conexion {
     public ResultSet consultaBD(String sql){
         try {
             st = con.createStatement();
-            return st.executeQuery(sql);
+            ResultSet rs = st.executeQuery(sql);
+            
+            return rs;
         } catch (SQLException ex) {
             return null;
-        }
+        } 
     }
     public boolean accionBD(String sql){
         try {
