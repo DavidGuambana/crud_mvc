@@ -1,6 +1,5 @@
-package main;
+package controlador;
 
-import controlador.CtrlPrincipal;
 import vista.VisPrincipal;
 
 public class MVC {

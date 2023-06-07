@@ -3,9 +3,9 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 public class MdlPersona extends Persona {
-    Conexion cpg = new Conexion();
-    ResultSet rs = null;
-    String sql;
+    public static Conexion cpg = new Conexion();
+    public static ResultSet rs = null;
+    public static String sql;
     
     public List<Persona> listarPersonas(String id) {
         List<Persona> listaPersonas = new ArrayList<>();
@@ -33,6 +33,7 @@ public class MdlPersona extends Persona {
                     
                 }
             }
+            Conexion.cerrarBD();
             return listaPersonas;
         } catch (SQLException ex) {
             return null;
@@ -99,5 +100,16 @@ public class MdlPersona extends Persona {
     public boolean eliminarPersona(String id){
         sql = "DELETE FROM persona WHERE idpersona='"+id+"'";
         return cpg.accionBD(sql);
+    }
+    public static int count(){
+        int cantidad = 0;
+        try {
+            sql = "Select count(idpersona) from persona;";
+            rs = cpg.consultaBD(sql);
+            rs.next();
+            cantidad = rs.getInt(1);
+        } catch (SQLException ex) {
+        }
+        return cantidad;
     }
 }

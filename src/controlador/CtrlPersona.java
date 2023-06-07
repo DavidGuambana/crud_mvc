@@ -1,6 +1,6 @@
 package controlador;
-import controlador.imp.FiltrarTabla;
-import controlador.imp.Validar;
+import controlador.util.FiltrarTabla;
+import controlador.util.Validar;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
@@ -26,7 +26,6 @@ public final class CtrlPersona extends KeyAdapter {
         this.modelo = modelo;
         this.vista = vista;
         vista.setVisible(true);
-        //vista.setLocationRelativeTo(null);
         visualizar("");
         seleccionar(vista.getT_personas());
         modo("vista");
@@ -42,6 +41,7 @@ public final class CtrlPersona extends KeyAdapter {
             }
             nuevoRegistro();
             visualizar("");
+            CtrlPrincipal.CountRegistros();
         });
         vista.getBtnRegistrar().addActionListener(registrar -> {
             setearDatos();
@@ -52,6 +52,7 @@ public final class CtrlPersona extends KeyAdapter {
             }
             nuevoRegistro();
             visualizar("");
+            CtrlPrincipal.CountRegistros();
         });
         vista.getBtnActualizar().addActionListener(actualizar -> {
             setearDatos();

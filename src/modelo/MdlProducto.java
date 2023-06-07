@@ -3,11 +3,13 @@ package modelo;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class MdlProducto extends Producto{
-    Conexion cpg = new Conexion();
-    ResultSet rs = null;
-    String sql;
+    public static Conexion cpg = new Conexion();
+    public static ResultSet rs = null;
+    public static String sql;
     
     public List<Producto> listarProductos(String id) {
         List<Producto> listaProductos = new ArrayList<>();
@@ -69,7 +71,18 @@ public class MdlProducto extends Producto{
     public boolean updateProductoStock() {
         sql = "UPDATE producto SET stock="
                 + getStock() + " WHERE idproducto='" + getIdproducto() + "'";
-        System.out.println(sql);
         return cpg.accionBD(sql);
+    }
+    
+    public static int count(){
+        int cantidad = 0;
+        try {
+            sql = "Select count(idproducto) from producto;";
+            rs = cpg.consultaBD(sql);
+            rs.next();
+            cantidad = rs.getInt(1);
+        } catch (SQLException ex) {
+        }
+        return cantidad;
     }
 }

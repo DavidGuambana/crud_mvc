@@ -1,8 +1,9 @@
 package modelo;
 import java.sql.*;
+import javax.swing.JOptionPane;
 public class Conexion {
     Connection con;
-    Statement st;
+    public static Statement st;
     String cadenaConecction="jdbc:postgresql://localhost:5432/MVC";
     String usuarioPG="postgres";
     String contraPG="0988";
@@ -16,15 +17,13 @@ public class Conexion {
             con = DriverManager.getConnection(cadenaConecction,usuarioPG, contraPG );
             //System.out.println("Connection OK");
         } catch (SQLException ex) {
-            System.out.println("No se pudo conectar");
+            JOptionPane.showMessageDialog(null, "¡No se pudo conectar!");
         }
     }
     public ResultSet consultaBD(String sql){
         try {
             st = con.createStatement();
-            ResultSet rs = st.executeQuery(sql);
-            
-            return rs;
+            return st.executeQuery(sql);
         } catch (SQLException ex) {
             return null;
         } 
@@ -41,6 +40,12 @@ public class Conexion {
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
             return false;
+        }
+    }
+    public static void cerrarBD(){
+        try {
+            st.close();
+        } catch (SQLException ex) {
         }
     }
 }

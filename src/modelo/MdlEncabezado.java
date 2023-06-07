@@ -3,13 +3,11 @@ package modelo;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class MdlEncabezado extends Encabezado{
-    Conexion cpg = new Conexion();
-    ResultSet rs = null;
-    String sql;
+    public static Conexion cpg = new Conexion();
+    public static ResultSet rs = null;
+    public static String sql;
     
     public List<Encabezado> listarEncabezados (int id){
        List<Encabezado> encabezados = new ArrayList<>();
@@ -60,8 +58,34 @@ public class MdlEncabezado extends Encabezado{
             rs.next();
             id = rs.getInt("idencabezado");
         } catch (SQLException ex) {
-            Logger.getLogger(MdlEncabezado.class.getName()).log(Level.SEVERE, null, ex);
         }
         return id;
+    }
+    public static int count(){
+        int cantidad = 0;
+        try {
+            sql = "Select count(idencabezado) from encabezado where estado = 'activo';";
+            rs = cpg.consultaBD(sql);
+            rs.next();
+            cantidad = rs.getInt(1);
+        } catch (SQLException ex) {
+        }
+        return cantidad;
+    }
+    public static double countTotal(){
+        double total=0;
+        try {
+            sql = "select SUM(total) from encabezado where estado = 'activo';";
+            rs = cpg.consultaBD(sql);
+            rs.next();
+            total = rs.getDouble(1);
+            sql = "select ROUND("+total+",2);";
+            rs = cpg.consultaBD(sql);
+            rs.next();
+            total = rs.getDouble(1);
+            
+        } catch (SQLException e) {
+        }
+        return total;
     }
 }

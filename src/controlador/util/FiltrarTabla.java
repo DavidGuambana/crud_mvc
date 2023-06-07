@@ -1,5 +1,5 @@
 
-package controlador.imp;
+package controlador.util;
 
 import javax.swing.JComboBox;
 import javax.swing.JTable;

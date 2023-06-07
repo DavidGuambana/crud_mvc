@@ -5,9 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MdlDetalle extends Detalle{
-    Conexion cpg = new Conexion();
-    ResultSet rs = null;
-    String sql;
+    public static Conexion cpg = new Conexion();
+    public static ResultSet rs = null;
+    public static String sql;
     
     public List<Detalle> listarDetalles (int codigo){
        List<Detalle> detalles = new ArrayList<>();
@@ -51,5 +51,16 @@ public class MdlDetalle extends Detalle{
     public boolean eliminarDetalles(String idencabezado){
         sql = "DELETE FROM detalle WHERE idencabezado="+idencabezado;
         return cpg.accionBD(sql);
+    }
+    public static int count(){
+        int cantidad = 0;
+        try {
+            sql = "select count(d.detalleid) from detalle d, encabezado e where d.encabezadoid = e.idencabezado and e.estado='activo';";
+            rs = cpg.consultaBD(sql);
+            rs.next();
+            cantidad = rs.getInt(1);
+        } catch (SQLException ex) {
+        }
+        return cantidad;
     }
 }

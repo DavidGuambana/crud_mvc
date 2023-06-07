@@ -397,7 +397,11 @@ public class VisFactura extends javax.swing.JInternalFrame {
         );
 
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 153)));
+        setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
         setMinimumSize(new java.awt.Dimension(600, 956));
 
         jspDatos.setPreferredSize(new java.awt.Dimension(912, 521));
@@ -490,7 +494,8 @@ public class VisFactura extends javax.swing.JInternalFrame {
         ));
         t_detalles.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         t_detalles.setOpaque(false);
-        t_detalles.setSelectionBackground(new java.awt.Color(102, 255, 102));
+        t_detalles.setSelectionBackground(new java.awt.Color(0, 102, 204));
+        t_detalles.setSelectionForeground(new java.awt.Color(255, 255, 255));
         t_detalles.getTableHeader().setResizingAllowed(false);
         t_detalles.getTableHeader().setReorderingAllowed(false);
         jScrollPane3.setViewportView(t_detalles);
@@ -688,9 +693,9 @@ public class VisFactura extends javax.swing.JInternalFrame {
                         .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(104, 104, 104)
                         .addGroup(jpFacturacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnCrearFactura, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnEliminarFactura, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 154, Short.MAX_VALUE)
+                            .addComponent(btnCrearFactura, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                            .addComponent(btnEliminarFactura, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE))
+                        .addGap(154, 154, 154)
                         .addGroup(jpFacturacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnSeleccionarProduto, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)
                             .addComponent(btnReiniciarFactura, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))

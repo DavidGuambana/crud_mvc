@@ -1,4 +1,4 @@
-package controlador.imp;
+package controlador.util;
 
 import java.awt.Component;
 import javax.swing.JButton;

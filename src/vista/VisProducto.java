@@ -126,7 +126,11 @@ public class VisProducto extends javax.swing.JInternalFrame  {
         jPanel3 = new javax.swing.JPanel();
 
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
+        setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
         setPreferredSize(new java.awt.Dimension(918, 503));
 
         jPanel2.setBackground(new java.awt.Color(51, 51, 51));

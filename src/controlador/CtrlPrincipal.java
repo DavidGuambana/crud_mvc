@@ -10,18 +10,17 @@ import vista.VisPersona;
 import vista.VisProducto;
 
 public final class CtrlPrincipal {
-
-    VisPrincipal visprincipal;
-    VisPersona vistapersona;
-    VisProducto vistaproducto;
-    VisFactura vistafactura;
+    public static VisPrincipal visprincipal;
+    public static VisPersona vistapersona;
+    public static VisProducto vistaproducto;
+    public static VisFactura vistafactura;
     
     public CtrlPrincipal(VisPrincipal vp) {
-        this.visprincipal = vp;
-        this.visprincipal = vp;
+        CtrlPrincipal.visprincipal = vp;
+        CtrlPrincipal.visprincipal = vp;
+        CountRegistros();
         vp.setVisible(true);
         vp.setLocationRelativeTo(null);
-        visprincipal.getTlbPersonas().setText("100");
     }
 
     public void iniciaControl() {
@@ -33,10 +32,9 @@ public final class CtrlPrincipal {
         
         visprincipal.getJmi_registrar_venta().addActionListener(l-> verFactura());
         visprincipal.getTlbFacturar().addActionListener(l->verFactura());
-        
     }
     
-    private void  verPersona(){
+    private void verPersona(){
         MdlPersona modelopersona = new MdlPersona();
         try {
             visprincipal.getDskPrincipal().add(vistapersona);
@@ -48,7 +46,7 @@ public final class CtrlPrincipal {
         ctrlpersona.iniciarCtrlBtn();
         ctrlpersona.iniciarCtrlKey();
     }
-    private void  verProducto(){
+    private void verProducto(){
         MdlProducto modeloproducto = new MdlProducto();
         try {
             visprincipal.getDskPrincipal().add(vistaproducto);
@@ -70,13 +68,19 @@ public final class CtrlPrincipal {
         try {
             visprincipal.getDskPrincipal().add(vistafactura);
         } catch (Exception e) {
-            
             vistafactura = new VisFactura();
             visprincipal.getDskPrincipal().add(vistafactura);
         }
         CtrlFactura ctrlfactura = new CtrlFactura(mdlencabezado, mdldetalle,mdlproducto,mdlpersona,vistafactura);
-        ctrlfactura.iniciarCtrlBtn();
+        ctrlfactura.iniciarControl();
     }
     
+    public static void CountRegistros(){
+        visprincipal.getTlbProductos().setText(""+MdlProducto.count());
+        visprincipal.getTlbPersonas().setText(""+MdlPersona.count());
+        visprincipal.getTlbFacturar().setText(""+MdlEncabezado.count());
+        visprincipal.getJlDetalles().setText(""+(MdlDetalle.count()));
+        visprincipal.getJlDinero().setText(""+(MdlEncabezado.countTotal()));
+    }
 }
 

@@ -1,7 +1,7 @@
 package controlador;
 
-import controlador.imp.FiltrarTabla;
-import controlador.imp.Validar;
+import controlador.util.FiltrarTabla;
+import controlador.util.Validar;
 import java.awt.HeadlessException;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -43,6 +43,7 @@ public final class CtrlProducto {
             }
             nuevoRegistro();
             visualizar("");
+            CtrlPrincipal.CountRegistros();
         });
         vista.getBtnRegistrar().addActionListener(registrar -> {
             if (validado()) {
@@ -53,6 +54,7 @@ public final class CtrlProducto {
                 }
                 nuevoRegistro();
                 visualizar("");
+                CtrlPrincipal.CountRegistros();
             }
         });
         vista.getBtnActualizar().addActionListener(actualizar -> {
