@@ -101,33 +101,18 @@ public class VisPrincipal extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         tolbar = new javax.swing.JToolBar();
         tlbFacturar = new javax.swing.JButton();
-        jSeparator4 = new javax.swing.JToolBar.Separator();
-        jSeparator3 = new javax.swing.JToolBar.Separator();
+        jSeparator12 = new javax.swing.JToolBar.Separator();
         tlbPersonas = new javax.swing.JButton();
-        jSeparator2 = new javax.swing.JToolBar.Separator();
-        jSeparator6 = new javax.swing.JToolBar.Separator();
+        jSeparator13 = new javax.swing.JToolBar.Separator();
         tlbProductos = new javax.swing.JButton();
-        jSeparator7 = new javax.swing.JToolBar.Separator();
-        jSeparator5 = new javax.swing.JToolBar.Separator();
         tolbar1 = new javax.swing.JToolBar();
         tlbResumen = new javax.swing.JButton();
-        jSeparator24 = new javax.swing.JToolBar.Separator();
-        jSeparator28 = new javax.swing.JToolBar.Separator();
-        jSeparator26 = new javax.swing.JToolBar.Separator();
-        jSeparator27 = new javax.swing.JToolBar.Separator();
-        jSeparator25 = new javax.swing.JToolBar.Separator();
-        jlDetalles = new javax.swing.JLabel();
         jSeparator14 = new javax.swing.JToolBar.Separator();
-        jSeparator13 = new javax.swing.JToolBar.Separator();
+        jlDetalles = new javax.swing.JLabel();
+        jSeparator20 = new javax.swing.JToolBar.Separator();
         jlDinero = new javax.swing.JLabel();
         jSeparator11 = new javax.swing.JToolBar.Separator();
-        jSeparator12 = new javax.swing.JToolBar.Separator();
-        jSeparator21 = new javax.swing.JToolBar.Separator();
-        jSeparator23 = new javax.swing.JToolBar.Separator();
-        jSeparator22 = new javax.swing.JToolBar.Separator();
-        jButton4 = new javax.swing.JButton();
-        jSeparator9 = new javax.swing.JToolBar.Separator();
-        jSeparator30 = new javax.swing.JToolBar.Separator();
+        jLabel1 = new javax.swing.JLabel();
         tlbSalir = new javax.swing.JButton();
         menubar = new javax.swing.JMenuBar();
         jmVentas = new javax.swing.JMenu();
@@ -185,83 +170,81 @@ public class VisPrincipal extends javax.swing.JFrame {
             .addGap(0, 502, Short.MAX_VALUE)
         );
 
-        jPanel2.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel2.setBackground(new java.awt.Color(204, 0, 0));
 
-        tolbar.setBackground(new java.awt.Color(51, 51, 51));
+        tolbar.setFloatable(false);
+        tolbar.setBackground(new java.awt.Color(204, 0, 0));
         tolbar.setBorder(null);
         tolbar.setRollover(true);
+        tolbar.setBorderPainted(false);
 
-        tlbFacturar.setBackground(new java.awt.Color(51, 51, 51));
+        tlbFacturar.setBackground(new java.awt.Color(204, 0, 0));
         tlbFacturar.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         tlbFacturar.setForeground(new java.awt.Color(255, 255, 255));
         tlbFacturar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/facturacion.png"))); // NOI18N
         tlbFacturar.setToolTipText("Facturas...");
         tlbFacturar.setBorder(null);
+        tlbFacturar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        tlbFacturar.setFocusPainted(false);
         tlbFacturar.setFocusable(false);
-        tlbFacturar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        tlbFacturar.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         tlbFacturar.setOpaque(true);
         tlbFacturar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         tolbar.add(tlbFacturar);
 
-        jSeparator4.setBackground(new java.awt.Color(0, 0, 0));
-        tolbar.add(jSeparator4);
+        jSeparator12.setSeparatorSize(new java.awt.Dimension(50, 20));
+        tolbar.add(jSeparator12);
 
-        jSeparator3.setBackground(new java.awt.Color(0, 0, 0));
-        tolbar.add(jSeparator3);
-
-        tlbPersonas.setBackground(new java.awt.Color(51, 51, 51));
+        tlbPersonas.setBackground(new java.awt.Color(204, 0, 0));
         tlbPersonas.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         tlbPersonas.setForeground(new java.awt.Color(255, 255, 255));
         tlbPersonas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/publico-objetivo.png"))); // NOI18N
         tlbPersonas.setToolTipText("Clientes...");
         tlbPersonas.setBorder(null);
-        tlbPersonas.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        tlbPersonas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        tlbPersonas.setFocusPainted(false);
+        tlbPersonas.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         tlbPersonas.setOpaque(true);
         tlbPersonas.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         tolbar.add(tlbPersonas);
 
-        jSeparator2.setBackground(new java.awt.Color(0, 0, 0));
-        tolbar.add(jSeparator2);
+        jSeparator13.setSeparatorSize(new java.awt.Dimension(50, 20));
+        tolbar.add(jSeparator13);
 
-        jSeparator6.setBackground(new java.awt.Color(0, 0, 0));
-        tolbar.add(jSeparator6);
-
-        tlbProductos.setBackground(new java.awt.Color(51, 51, 51));
+        tlbProductos.setBackground(new java.awt.Color(204, 0, 0));
         tlbProductos.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         tlbProductos.setForeground(new java.awt.Color(255, 255, 255));
         tlbProductos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/carrito-de-supermercado.png"))); // NOI18N
         tlbProductos.setToolTipText("Productos...");
         tlbProductos.setBorder(null);
-        tlbProductos.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        tlbProductos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        tlbProductos.setFocusPainted(false);
+        tlbProductos.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         tlbProductos.setOpaque(true);
         tlbProductos.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         tolbar.add(tlbProductos);
 
-        jSeparator7.setBackground(new java.awt.Color(0, 0, 0));
-        tolbar.add(jSeparator7);
-
-        jSeparator5.setBackground(new java.awt.Color(0, 0, 0));
-        tolbar.add(jSeparator5);
-
-        tolbar1.setBackground(new java.awt.Color(51, 51, 51));
+        tolbar1.setFloatable(false);
+        tolbar1.setBackground(new java.awt.Color(204, 0, 0));
         tolbar1.setBorder(null);
         tolbar1.setRollover(true);
+        tolbar1.setBorderPainted(false);
 
-        tlbResumen.setBackground(new java.awt.Color(51, 51, 51));
+        tlbResumen.setBackground(new java.awt.Color(204, 0, 0));
         tlbResumen.setForeground(new java.awt.Color(255, 255, 255));
         tlbResumen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/satisfaccion.png"))); // NOI18N
         tlbResumen.setToolTipText("Resumen...");
         tlbResumen.setBorder(null);
+        tlbResumen.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        tlbResumen.setFocusPainted(false);
         tlbResumen.setFocusable(false);
         tlbResumen.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         tlbResumen.setOpaque(true);
         tlbResumen.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         tolbar1.add(tlbResumen);
-        tolbar1.add(jSeparator24);
-        tolbar1.add(jSeparator28);
-        tolbar1.add(jSeparator26);
-        tolbar1.add(jSeparator27);
-        tolbar1.add(jSeparator25);
+
+        jSeparator14.setSeparatorSize(new java.awt.Dimension(50, 20));
+        tolbar1.add(jSeparator14);
 
         jlDetalles.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
         jlDetalles.setForeground(new java.awt.Color(255, 255, 255));
@@ -270,8 +253,9 @@ public class VisPrincipal extends javax.swing.JFrame {
         jlDetalles.setToolTipText("Ventas (detalles de encabezado)...");
         jlDetalles.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         tolbar1.add(jlDetalles);
-        tolbar1.add(jSeparator14);
-        tolbar1.add(jSeparator13);
+
+        jSeparator20.setSeparatorSize(new java.awt.Dimension(50, 20));
+        tolbar1.add(jSeparator20);
 
         jlDinero.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
         jlDinero.setForeground(new java.awt.Color(255, 255, 255));
@@ -280,30 +264,21 @@ public class VisPrincipal extends javax.swing.JFrame {
         jlDinero.setToolTipText("Dinero total...");
         jlDinero.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         tolbar1.add(jlDinero);
+
+        jSeparator11.setSeparatorSize(new java.awt.Dimension(80, 20));
         tolbar1.add(jSeparator11);
-        tolbar1.add(jSeparator12);
-        tolbar1.add(jSeparator21);
-        tolbar1.add(jSeparator23);
-        tolbar1.add(jSeparator22);
 
-        jButton4.setBackground(new java.awt.Color(51, 51, 51));
-        jButton4.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jButton4.setText("David Guambaña");
-        jButton4.setToolTipText("Nombre de usuario...");
-        jButton4.setBorder(null);
-        jButton4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton4.setOpaque(true);
-        jButton4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        tolbar1.add(jButton4);
-        tolbar1.add(jSeparator9);
-        tolbar1.add(jSeparator30);
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("David Guambaña");
+        tolbar1.add(jLabel1);
 
-        tlbSalir.setBackground(new java.awt.Color(51, 51, 51));
+        tlbSalir.setBackground(new java.awt.Color(204, 0, 0));
         tlbSalir.setForeground(new java.awt.Color(255, 255, 255));
         tlbSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/cerrar-sesion.png"))); // NOI18N
         tlbSalir.setToolTipText("Cerrar sesión...");
         tlbSalir.setBorder(null);
+        tlbSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        tlbSalir.setFocusPainted(false);
         tlbSalir.setFocusable(false);
         tlbSalir.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         tlbSalir.setOpaque(true);
@@ -316,48 +291,59 @@ public class VisPrincipal extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addComponent(tolbar, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 226, Short.MAX_VALUE)
-                .addComponent(tolbar1, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tolbar, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addComponent(tolbar1, javax.swing.GroupLayout.PREFERRED_SIZE, 466, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(4, 4, 4)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(tolbar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(tolbar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tolbar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tolbar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        menubar.setBackground(new java.awt.Color(51, 51, 51));
+        menubar.setBackground(new java.awt.Color(0, 0, 204));
         menubar.setBorder(null);
+        menubar.setForeground(new java.awt.Color(255, 255, 255));
+        menubar.setOpaque(true);
         menubar.setPreferredSize(new java.awt.Dimension(200, 40));
 
-        jmVentas.setBackground(new java.awt.Color(51, 51, 51));
-        jmVentas.setForeground(new java.awt.Color(255, 255, 255));
+        jmVentas.setForeground(new java.awt.Color(51, 51, 51));
         jmVentas.setText("Ventas");
         jmVentas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jmVentas.setFont(new java.awt.Font("Yu Gothic", 1, 12)); // NOI18N
+        jmVentas.setFocusPainted(true);
+        jmVentas.setFont(new java.awt.Font("Yu Gothic", 0, 12)); // NOI18N
+        jmVentas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jmVentas.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jmVentas.setIconTextGap(4);
 
         jmi_registrar_venta.setFont(new java.awt.Font("Yu Gothic", 0, 12)); // NOI18N
-        jmi_registrar_venta.setForeground(new java.awt.Color(0, 102, 204));
+        jmi_registrar_venta.setForeground(new java.awt.Color(51, 51, 51));
         jmi_registrar_venta.setText("Nueva venta");
         jmi_registrar_venta.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         jmi_registrar_venta.setOpaque(true);
         jmVentas.add(jmi_registrar_venta);
+
+        jSeparator18.setBackground(new java.awt.Color(255, 255, 255));
+        jSeparator18.setForeground(new java.awt.Color(51, 51, 51));
         jmVentas.add(jSeparator18);
 
         jmi_visualizar_ventas.setFont(new java.awt.Font("Yu Gothic", 0, 12)); // NOI18N
-        jmi_visualizar_ventas.setForeground(new java.awt.Color(0, 102, 204));
+        jmi_visualizar_ventas.setForeground(new java.awt.Color(51, 51, 51));
         jmi_visualizar_ventas.setText("Todas las ventas");
         jmi_visualizar_ventas.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         jmi_visualizar_ventas.setOpaque(true);
         jmVentas.add(jmi_visualizar_ventas);
+
+        jSeparator19.setBackground(new java.awt.Color(255, 255, 255));
+        jSeparator19.setForeground(new java.awt.Color(51, 51, 51));
         jmVentas.add(jSeparator19);
 
-        jmResumen.setForeground(new java.awt.Color(0, 102, 153));
+        jmResumen.setForeground(new java.awt.Color(51, 51, 51));
         jmResumen.setText("Resumen");
         jmResumen.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jmResumen.setFont(new java.awt.Font("Yu Gothic", 0, 12)); // NOI18N
@@ -365,25 +351,34 @@ public class VisPrincipal extends javax.swing.JFrame {
         jmResumen.setOpaque(true);
 
         jmiDiario.setFont(new java.awt.Font("Yu Gothic", 0, 12)); // NOI18N
-        jmiDiario.setForeground(new java.awt.Color(0, 102, 153));
+        jmiDiario.setForeground(new java.awt.Color(51, 51, 51));
         jmiDiario.setText("Diario");
         jmResumen.add(jmiDiario);
+
+        jSeparator15.setBackground(new java.awt.Color(255, 255, 255));
+        jSeparator15.setForeground(new java.awt.Color(51, 51, 51));
         jmResumen.add(jSeparator15);
 
         jmiSemanal.setFont(new java.awt.Font("Yu Gothic", 0, 12)); // NOI18N
-        jmiSemanal.setForeground(new java.awt.Color(0, 102, 153));
+        jmiSemanal.setForeground(new java.awt.Color(51, 51, 51));
         jmiSemanal.setText("Semanal");
         jmResumen.add(jmiSemanal);
+
+        jSeparator16.setBackground(new java.awt.Color(255, 255, 255));
+        jSeparator16.setForeground(new java.awt.Color(51, 51, 51));
         jmResumen.add(jSeparator16);
 
         jmiMensual.setFont(new java.awt.Font("Yu Gothic", 0, 12)); // NOI18N
-        jmiMensual.setForeground(new java.awt.Color(0, 102, 153));
+        jmiMensual.setForeground(new java.awt.Color(51, 51, 51));
         jmiMensual.setText("Mensual");
         jmResumen.add(jmiMensual);
+
+        jSeparator17.setBackground(new java.awt.Color(255, 255, 255));
+        jSeparator17.setForeground(new java.awt.Color(51, 51, 51));
         jmResumen.add(jSeparator17);
 
         jmiAnual.setFont(new java.awt.Font("Yu Gothic", 0, 12)); // NOI18N
-        jmiAnual.setForeground(new java.awt.Color(0, 102, 153));
+        jmiAnual.setForeground(new java.awt.Color(51, 51, 51));
         jmiAnual.setText("Anual");
         jmResumen.add(jmiAnual);
 
@@ -391,14 +386,17 @@ public class VisPrincipal extends javax.swing.JFrame {
 
         menubar.add(jmVentas);
 
-        jmClientes.setBackground(new java.awt.Color(51, 51, 51));
-        jmClientes.setForeground(new java.awt.Color(255, 255, 255));
+        jmClientes.setForeground(new java.awt.Color(51, 51, 51));
         jmClientes.setText("Clientes");
         jmClientes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jmClientes.setFont(new java.awt.Font("Yu Gothic", 1, 12)); // NOI18N
+        jmClientes.setFocusPainted(true);
+        jmClientes.setFont(new java.awt.Font("Yu Gothic", 0, 12)); // NOI18N
+        jmClientes.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jmClientes.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jmClientes.setIconTextGap(4);
 
         jmi_visualizar_clientes.setFont(new java.awt.Font("Yu Gothic", 0, 12)); // NOI18N
-        jmi_visualizar_clientes.setForeground(new java.awt.Color(0, 102, 204));
+        jmi_visualizar_clientes.setForeground(new java.awt.Color(51, 51, 51));
         jmi_visualizar_clientes.setText("Todos los clientes");
         jmi_visualizar_clientes.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         jmi_visualizar_clientes.setOpaque(true);
@@ -406,14 +404,18 @@ public class VisPrincipal extends javax.swing.JFrame {
 
         menubar.add(jmClientes);
 
-        jmProductos.setBackground(new java.awt.Color(51, 51, 51));
-        jmProductos.setForeground(new java.awt.Color(255, 255, 255));
+        jmProductos.setBorder(null);
+        jmProductos.setForeground(new java.awt.Color(51, 51, 51));
         jmProductos.setText("Productos");
         jmProductos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jmProductos.setFont(new java.awt.Font("Yu Gothic", 1, 12)); // NOI18N
+        jmProductos.setFocusPainted(true);
+        jmProductos.setFont(new java.awt.Font("Yu Gothic", 0, 12)); // NOI18N
+        jmProductos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jmProductos.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jmProductos.setIconTextGap(4);
 
         jmi_visualizar_productos.setFont(new java.awt.Font("Yu Gothic", 0, 12)); // NOI18N
-        jmi_visualizar_productos.setForeground(new java.awt.Color(0, 102, 204));
+        jmi_visualizar_productos.setForeground(new java.awt.Color(51, 51, 51));
         jmi_visualizar_productos.setText("Todos los productos");
         jmi_visualizar_productos.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         jmi_visualizar_productos.setOpaque(true);
@@ -447,7 +449,7 @@ public class VisPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane dskPrincipal;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JToolBar.Separator jSeparator11;
@@ -459,22 +461,7 @@ public class VisPrincipal extends javax.swing.JFrame {
     private javax.swing.JPopupMenu.Separator jSeparator17;
     private javax.swing.JPopupMenu.Separator jSeparator18;
     private javax.swing.JPopupMenu.Separator jSeparator19;
-    private javax.swing.JToolBar.Separator jSeparator2;
-    private javax.swing.JToolBar.Separator jSeparator21;
-    private javax.swing.JToolBar.Separator jSeparator22;
-    private javax.swing.JToolBar.Separator jSeparator23;
-    private javax.swing.JToolBar.Separator jSeparator24;
-    private javax.swing.JToolBar.Separator jSeparator25;
-    private javax.swing.JToolBar.Separator jSeparator26;
-    private javax.swing.JToolBar.Separator jSeparator27;
-    private javax.swing.JToolBar.Separator jSeparator28;
-    private javax.swing.JToolBar.Separator jSeparator3;
-    private javax.swing.JToolBar.Separator jSeparator30;
-    private javax.swing.JToolBar.Separator jSeparator4;
-    private javax.swing.JToolBar.Separator jSeparator5;
-    private javax.swing.JToolBar.Separator jSeparator6;
-    private javax.swing.JToolBar.Separator jSeparator7;
-    private javax.swing.JToolBar.Separator jSeparator9;
+    private javax.swing.JToolBar.Separator jSeparator20;
     private javax.swing.JLabel jlDetalles;
     private javax.swing.JLabel jlDinero;
     private javax.swing.JMenu jmClientes;

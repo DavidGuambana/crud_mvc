@@ -13,6 +13,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import modelo.MdlPersona;
 import modelo.Persona;
+import reporte.Reporte;
 import vista.VisPersona;
 
 public final class CtrlPersona extends KeyAdapter {
@@ -32,6 +33,8 @@ public final class CtrlPersona extends KeyAdapter {
     }
     
     public void iniciarCtrlBtn() {
+        vista.getBtnImprimir().addActionListener(l-> {Reporte r = new Reporte();
+                r.imprimir_personas();});
         vista.getBtnBuscar().addActionListener(buscar -> FiltrarTabla.filtrar(vista.getT_personas(),vista.getTxtBuscar(),vista.getCbAtributos()));
         vista.getBtnRemover().addActionListener(remover -> {
             if (modelo.eliminarPersona(vista.getTxtID().getText())) {

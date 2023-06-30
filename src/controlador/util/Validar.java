@@ -264,5 +264,34 @@ public class Validar {
         return nacimiento.compareTo(hoy) < 0 && (dif_años >=18 && dif_años <100 );
 
     }
+    
+    public static void nombre_compuesto(JTextField texto, int longitud) {
+        try {
+            texto.addKeyListener(new KeyAdapter() {
+                @Override
+
+                public void keyTyped(KeyEvent e) {
+                    int key = e.getKeyChar();
+                    boolean mayusculas = key >= 65 && key <= 90;
+                    boolean minusculas = key >= 97 && key <= 122;
+                    boolean numeros = key >= 48 && key <= 57;
+                    boolean espacio = key == 32;
+                    boolean punto = key ==46;
+                    boolean ñ = key == 209 || key == 241; //código ISO (ñ y Ñ);
+                    boolean VocMinTil = key==225 || key==233 || key==237 || key==243 || key==250 || key==252; //código ISO (á, é, í, ó, ú, ü);
+                    boolean VocMayTil = key==193 || key==201 || key==205 || key==211 || key==218 || key==220; //código ISO (á, é, í, ó, ú, Ü);
+
+                    if (!(minusculas || mayusculas || espacio || numeros || punto || ñ || VocMinTil || VocMayTil)) {
+                        e.consume();
+                    }
+                    if (texto.getText().length() >= longitud) {
+                        e.consume();
+                    }
+                }
+            });
+
+        } catch (Exception d) {
+        }
+    }
 
 }

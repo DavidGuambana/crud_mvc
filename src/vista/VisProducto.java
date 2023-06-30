@@ -142,7 +142,6 @@ public class VisProducto extends javax.swing.JInternalFrame  {
         btnBuscar.setText("Buscar");
         btnBuscar.setBorder(null);
         btnBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnBuscar.setOpaque(true);
         jPanel2.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 10, 120, 30));
 
         txtBuscar.setBackground(new java.awt.Color(51, 51, 51));
@@ -164,7 +163,6 @@ public class VisProducto extends javax.swing.JInternalFrame  {
         cbAtributos.setForeground(new java.awt.Color(255, 255, 255));
         cbAtributos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID", "Nombre", "Precio", "Stock", "Descripción", "Categoría" }));
         cbAtributos.setBorder(null);
-        cbAtributos.setOpaque(true);
         jPanel2.add(cbAtributos, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, 170, 30));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N

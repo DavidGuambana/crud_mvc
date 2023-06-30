@@ -154,7 +154,6 @@ public class VisPersona extends javax.swing.JInternalFrame  {
         btnBuscar.setText("Buscar");
         btnBuscar.setBorder(null);
         btnBuscar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        btnBuscar.setOpaque(true);
         jPanel2.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 10, 120, 30));
 
         cbAtributos.setBackground(new java.awt.Color(0, 204, 255));
@@ -162,7 +161,6 @@ public class VisPersona extends javax.swing.JInternalFrame  {
         cbAtributos.setForeground(new java.awt.Color(255, 255, 255));
         cbAtributos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID", "Nombres", "Apellidos", "Edad", "Teléfono", "Sexo", "Sueldo", "Cupo", "Email" }));
         cbAtributos.setBorder(null);
-        cbAtributos.setOpaque(true);
         jPanel2.add(cbAtributos, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, 170, 30));
 
         t_personas = new javax.swing.JTable(){
@@ -374,7 +372,7 @@ public class VisPersona extends javax.swing.JInternalFrame  {
         btnImprimir.setBackground(new java.awt.Color(51, 51, 51));
         btnImprimir.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btnImprimir.setForeground(new java.awt.Color(255, 255, 255));
-        btnImprimir.setText("Imprimir");
+        btnImprimir.setText("Imprimir personas");
         btnImprimir.setBorder(null);
         btnImprimir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 

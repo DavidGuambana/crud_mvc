@@ -22,6 +22,7 @@ import modelo.MdlPersona;
 import modelo.MdlProducto;
 import modelo.Persona;
 import modelo.Producto;
+import reporte.Reporte;
 import vista.VisFactura;
 
 public final class CtrlFactura  {
@@ -72,13 +73,20 @@ public final class CtrlFactura  {
         vista.getBtnEliminarFactura().setVisible(false);
         vista.getT_productos().setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
     }
+    
 
     public void iniciarControl() {
         vista.getBtnBuscar_enc().addActionListener(buscar -> FiltrarTabla.filtrar(vista.getT_encabezados(), vista.getTxtBuscar_enc(), vista.getCbFactura()));
         vista.getBtnBuscar_pro().addActionListener(buscar -> FiltrarTabla.filtrar(vista.getT_productos(), vista.getTxtBuscar_pro(), vista.getCbxProducto()));
         vista.getBtnCrearFactura().addActionListener(c -> {
-            crearFactura();
-            CtrlPrincipal.CountRegistros();
+            if (vista.getBtnCrearFactura().getText().equals("CREAR FACTURA")) {
+                crearFactura();
+                CtrlPrincipal.CountRegistros();
+            } else if (vista.getBtnCrearFactura().getText().equals("IMPRIMIR FACTURA")) {
+                Reporte r = new Reporte();
+                r.imprimir_factura(Integer.parseInt(vista.getTxtCodigo().getText()));
+            }
+            
         });
         vista.getBtnSeleccionarProduto().addActionListener(c -> abrirDialogo("Listado de productos"));
         vista.getBtnReiniciarFactura().addActionListener(c -> reiniciarFactura());
@@ -195,7 +203,7 @@ public final class CtrlFactura  {
                     vista.getTxtTelefono().setText(personas.get(0).getTelefono());
                     
                     vista.getBtnEliminarFactura().setVisible(true);
-                    vista.getBtnCrearFactura().setVisible(false);
+                    vista.getBtnCrearFactura().setText("IMPRIMIR FACTURA");
                     vista.getBtnSeleccionarProduto().setVisible(false);
                     vista.getBtnReiniciarFactura().setVisible(false);
                     vista.getJpBuscar_cli().setVisible(false);
@@ -241,7 +249,6 @@ public final class CtrlFactura  {
                             }
                         }
                     }
-
                 }
             }
         });
@@ -352,4 +359,5 @@ public final class CtrlFactura  {
             CtrlPrincipal.CountRegistros();
         }
     }
+    
 }

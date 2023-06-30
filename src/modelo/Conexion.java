@@ -48,4 +48,7 @@ public class Conexion {
         } catch (SQLException ex) {
         }
     }
+    public Connection getConection () {
+        return con;
+    }
 }
