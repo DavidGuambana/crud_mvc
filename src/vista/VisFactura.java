@@ -472,7 +472,6 @@ public class VisFactura extends javax.swing.JInternalFrame {
         txtID.setEditable(false);
         txtID.setBackground(new java.awt.Color(255, 255, 255));
         txtID.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        txtID.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
 
         t_detalles = new javax.swing.JTable(){
             public boolean isCellEditable(int rowIndex, int colIndex){
@@ -517,26 +516,22 @@ public class VisFactura extends javax.swing.JInternalFrame {
 
         txtNombres.setEditable(false);
         txtNombres.setBackground(new java.awt.Color(255, 255, 255));
-        txtNombres.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
 
         jLabel11.setText("Nombres:");
 
         txtApellidos.setEditable(false);
         txtApellidos.setBackground(new java.awt.Color(255, 255, 255));
-        txtApellidos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
 
         jLabel12.setText("Apellidos:");
 
         txtTelefono.setEditable(false);
         txtTelefono.setBackground(new java.awt.Color(255, 255, 255));
-        txtTelefono.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
 
         jLabel13.setText("Teléfono:");
 
         btnSeleccionarProduto.setBackground(new java.awt.Color(51, 255, 51));
         btnSeleccionarProduto.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnSeleccionarProduto.setText("+ Seleccionar producto");
-        btnSeleccionarProduto.setBorder(null);
         btnSeleccionarProduto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jLabel15.setBackground(new java.awt.Color(0, 102, 153));
@@ -559,7 +554,6 @@ public class VisFactura extends javax.swing.JInternalFrame {
         txtCodigo.setBackground(new java.awt.Color(255, 255, 255));
         txtCodigo.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         txtCodigo.setText("Autogenerable");
-        txtCodigo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
 
         jLabel17.setText("Fecha:");
 
@@ -567,7 +561,6 @@ public class VisFactura extends javax.swing.JInternalFrame {
         txtFecha.setBackground(new java.awt.Color(255, 255, 255));
         txtFecha.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         txtFecha.setText("Autogenerable");
-        txtFecha.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
 
         txtTotal.setEditable(false);
         txtTotal.setBackground(new java.awt.Color(0, 153, 255));
@@ -575,13 +568,11 @@ public class VisFactura extends javax.swing.JInternalFrame {
         txtTotal.setForeground(new java.awt.Color(255, 255, 255));
         txtTotal.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtTotal.setText("$ 0.00");
-        txtTotal.setBorder(null);
 
         btnCrearFactura.setBackground(new java.awt.Color(0, 204, 102));
         btnCrearFactura.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnCrearFactura.setForeground(new java.awt.Color(255, 255, 255));
         btnCrearFactura.setText("CREAR FACTURA");
-        btnCrearFactura.setBorder(null);
         btnCrearFactura.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jLabel19.setBackground(new java.awt.Color(255, 255, 255));
@@ -593,7 +584,6 @@ public class VisFactura extends javax.swing.JInternalFrame {
         btnReiniciarFactura.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnReiniciarFactura.setForeground(new java.awt.Color(255, 255, 255));
         btnReiniciarFactura.setText("¡Volver a empezar!");
-        btnReiniciarFactura.setBorder(null);
         btnReiniciarFactura.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnReiniciarFactura.setOpaque(true);
 
@@ -601,7 +591,6 @@ public class VisFactura extends javax.swing.JInternalFrame {
         btnEliminarFactura.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnEliminarFactura.setForeground(new java.awt.Color(255, 255, 255));
         btnEliminarFactura.setText("ELIMINAR FACTURA");
-        btnEliminarFactura.setBorder(null);
         btnEliminarFactura.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));

@@ -227,7 +227,7 @@ public final class CtrlFactura  {
                         Object obj = vista.getT_productos().getValueAt(xrow, xcolum);
                         if (obj instanceof JButton) {
                             agregarProducto(id_pro, nombre_pro, precio_pro, existencias);
-                        } 
+                        }
                     }
                 }
             }
@@ -239,15 +239,19 @@ public final class CtrlFactura  {
                     if (vista.getBtnCrearFactura().isVisible()) {
                         String id_pro = t2.getValueAt(t2.getSelectedRow(), 0).toString();
                         double precio_pro = Double.parseDouble(t2.getValueAt(t2.getSelectedRow(), 2).toString());
-                        int cantidad = Integer.parseInt(t2.getValueAt(t2.getSelectedRow(), 3).toString());
-                        int xcolum = t2.getColumnModel().getColumnIndexAtX(me.getX());
-                        int xrow = me.getY() / t2.getRowHeight();
-                        if (xcolum <= vista.getT_productos().getColumnCount() && xcolum >= 0 && xrow <= vista.getT_productos().getRowCount() && xrow >= 0) {
-                            Object obj = vista.getT_productos().getValueAt(xrow, xcolum);
-                            if (obj instanceof JButton) {
-                                removerProducto(id_pro, precio_pro, cantidad);
+                        try {
+                            int cantidad = Integer.parseInt(t2.getValueAt(t2.getSelectedRow(), 3).toString());
+                            int xcolum = t2.getColumnModel().getColumnIndexAtX(me.getX());
+                            int xrow = me.getY() / t2.getRowHeight();
+                            if (xcolum <= vista.getT_productos().getColumnCount() && xcolum >= 0 && xrow <= vista.getT_productos().getRowCount() && xrow >= 0) {
+                                Object obj = vista.getT_productos().getValueAt(xrow, xcolum);
+                                if (obj instanceof JButton) {
+                                    removerProducto(id_pro, precio_pro, cantidad);
+                                }
                             }
+                        } catch (Exception e) {
                         }
+
                     }
                 }
             }

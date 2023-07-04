@@ -1,10 +1,11 @@
 package controlador;
 
+import com.formdev.flatlaf.FlatIntelliJLaf;
+import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatGitHubIJTheme;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
-import javax.swing.plaf.nimbus.NimbusLookAndFeel;
 import vista.VisPrincipal;
 
 public class MVC {
@@ -18,20 +19,14 @@ public class MVC {
     }
     
     public static void diseñar(){
-//         try {
-//            try {
-//                UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-//            } catch (ClassNotFoundException ex) {
-//                Logger.getLogger(MVC.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//        } catch (InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
-//            Logger.getLogger(MVC.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-
         try {
-            UIManager.setLookAndFeel(new NimbusLookAndFeel());
+            UIManager.setLookAndFeel(new FlatIntelliJLaf());            
+            UIManager.put("Button.arc", 100);
+            UIManager.put("Component.arc", 100);
+            UIManager.put("ProgressBar.arc", 100);
+            UIManager.put("TextComponent.arc", 100);
         } catch (UnsupportedLookAndFeelException ex) {
-            Logger.getLogger(VisPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MVC.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         
