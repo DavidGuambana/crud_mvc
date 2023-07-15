@@ -13,7 +13,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import modelo.MdlPersona;
 import modelo.Persona;
-import reporte.Reporte;
+import Practicas.Reporte;
 import vista.VisPersona;
 
 public final class CtrlPersona extends KeyAdapter {

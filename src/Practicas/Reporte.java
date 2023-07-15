@@ -1,5 +1,6 @@
-package reporte;
+package Practicas;
 
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 import javax.swing.JOptionPane;
@@ -25,33 +26,39 @@ public class Reporte {
             
             map.put("min", Double.valueOf(min));
             map.put("max", Double.valueOf(max));
-            
-            System.out.println("minimo: "+min);
-            System.out.println("maximo: "+max);
-            url = "/reporte/Factura.jasper";
-            print(map, url);
+            url = "/Practicas/Factura.jasper";
+            print(map, url,"factura");
         } catch (Exception e) {
         }
     }
     
     public void imprimir_personas() {
         map = new HashMap<>();
-        url = "/reporte/Persona.jasper";
-        print(map, url);
+        url = "/Practicas/Persona.jasper";
+        print(map, url,"persona");
     }
 
-    public void print(Map<String, Object> map, String url) {
+    public void print(Map<String, Object> map, String url, String modo) {
 
         try {
             map.put("Logo1", "src/reporte/img/factura_logo.png");
             map.put("Logo2", "src/reporte/img/certificado_32px.png");
+            if (modo.equals("persona")) {
+                // Cargar el subreporte desde un InputStream
+                InputStream inSR = getClass().getResourceAsStream("/Practicas/SUBR.jasper");
+                JasperReport subReport = (JasperReport) JRLoader.loadObject(inSR);
+                // Asignar el subreporte al parámetro correspondiente
+                map.put("Subreport", subReport);
+            }
             Conexion con = new Conexion();
             JasperReport jr = (JasperReport) JRLoader.loadObject(getClass().getResource(url));
             JasperPrint print = JasperFillManager.fillReport(jr, map, con.getConection());
             JasperViewer pv = new JasperViewer(print, false);
             pv.setVisible(true);
             pv.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+
         } catch (Exception e) {
+            System.out.println(e.getMessage());
             JOptionPane.showMessageDialog(null, "Archivo de reporte no encontrado", null, JOptionPane.ERROR_MESSAGE);
         }
     }

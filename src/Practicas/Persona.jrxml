@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.3.0.final using JasperReports Library version 6.3.0  -->
-<!-- 2023-06-30T12:26:23 -->
+<!-- 2023-07-14T21:46:03 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Encabezados" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e578dac5-7557-41c8-bdef-74361c3dd3f0">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
-	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="MVC"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="POSTGRES"/>
 	<style name="Table_TH" mode="Opaque" backcolor="#F0F8FF">
 		<box>
 			<pen lineWidth="0.5" lineColor="#000000"/>
@@ -42,6 +42,12 @@
 	</style>
 	<style name="Style1"/>
 	<style name="Style2"/>
+	<style name="pintar" mode="Opaque" forecolor="#23FF17" backcolor="#E03A5E" isBold="false">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$P{p_genero} == $F{count}]]></conditionExpression>
+			<style/>
+		</conditionalStyle>
+	</style>
 	<subDataset name="Detalles" uuid="ad911b74-0e72-48b6-9785-ed5ddf549299">
 		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="MVC"/>
 		<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
@@ -60,15 +66,17 @@ ORDER BY idpersona]]>
 	</subDataset>
 	<parameter name="Logo1" class="java.lang.String"/>
 	<parameter name="Logo2" class="java.lang.String"/>
+	<parameter name="Subreport" class="net.sf.jasperreports.engine.JasperReport"/>
 	<queryString>
 		<![CDATA[SELECT COUNT(*) FROM PERSONA]]>
 	</queryString>
 	<field name="count" class="java.lang.Long"/>
+	<group name="subreporte"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="170" splitType="Stretch">
+		<band height="171" splitType="Stretch">
 			<staticText>
 				<reportElement positionType="Float" x="472" y="80" width="8" height="20" uuid="13c6d1a4-e223-4c2a-890a-b4f9000935dc"/>
 				<textElement textAlignment="Center">
@@ -220,9 +228,9 @@ ORDER BY idpersona]]>
 		</band>
 	</pageHeader>
 	<detail>
-		<band height="355" splitType="Stretch">
+		<band height="70" splitType="Stretch">
 			<componentElement>
-				<reportElement x="0" y="10" width="555" height="190" uuid="e38b0315-a96b-4234-b6a4-bd4f1da2e586">
+				<reportElement x="0" y="0" width="555" height="70" uuid="e38b0315-a96b-4234-b6a4-bd4f1da2e586">
 					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
 					<property name="com.jaspersoft.studio.table.style.table_header" value="Table 1_TH"/>
 					<property name="com.jaspersoft.studio.table.style.column_header" value="Table 1_CH"/>
@@ -308,7 +316,7 @@ ORDER BY idpersona]]>
 							<textField>
 								<reportElement x="0" y="0" width="89" height="30" forecolor="#000000" uuid="21c3d808-c6b3-4d7c-9c2a-c299a4ce147b"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font fontName="DejaVu Sans" size="10"/>
+									<font size="10"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{sexo}]]></textFieldExpression>
 							</textField>
@@ -358,20 +366,6 @@ ORDER BY idpersona]]>
 					</jr:column>
 				</jr:table>
 			</componentElement>
-			<staticText>
-				<reportElement positionType="Float" x="201" y="250" width="154" height="40" uuid="f2f9a656-4009-4607-b2d8-0a4578385165"/>
-				<textElement textAlignment="Center">
-					<font size="20" isBold="false"/>
-				</textElement>
-				<text><![CDATA[N° de personas:]]></text>
-			</staticText>
-			<textField>
-				<reportElement key="" x="216" y="290" width="122" height="40" forecolor="#000000" uuid="ee79227c-ac67-4b19-b21c-9e48a276d961"/>
-				<textElement textAlignment="Center">
-					<font size="20" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{count}]]></textFieldExpression>
-			</textField>
 		</band>
 	</detail>
 	<pageFooter>
@@ -395,4 +389,16 @@ ORDER BY idpersona]]>
 			</staticText>
 		</band>
 	</pageFooter>
+	<summary>
+		<band height="254">
+			<subreport>
+				<reportElement x="-10" y="30" width="544" height="210" uuid="43b275d4-3c81-49f6-b9b3-00fbf1e8c1b9"/>
+				<subreportParameter name="Subreport">
+					<subreportParameterExpression><![CDATA[$P{Subreport}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["Practicas/SUBR.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</summary>
 </jasperReport>

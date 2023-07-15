@@ -22,7 +22,7 @@ import modelo.MdlPersona;
 import modelo.MdlProducto;
 import modelo.Persona;
 import modelo.Producto;
-import reporte.Reporte;
+import Practicas.Reporte;
 import vista.VisFactura;
 
 public final class CtrlFactura  {
